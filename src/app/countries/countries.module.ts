@@ -5,17 +5,19 @@ import { RegionComponent } from './pages/region/region.component';
 import { CountriesComponent } from './pages/countries/countries.component';
 import { WatchCountriesComponent } from './pages/watch-countries/watch-countries.component';
 
-
-
 @NgModule({
   declarations: [
     CapitalComponent,
     RegionComponent,
     CountriesComponent,
-    WatchCountriesComponent
+    WatchCountriesComponent,
   ],
-  imports: [
-    CommonModule
-  ]
+  imports: [CommonModule],
+  exports: [
+    CapitalComponent,
+    RegionComponent,
+    CountriesComponent,
+    WatchCountriesComponent,
+  ],
 })
-export class CountriesModule { }
+export class CountriesModule {}
