@@ -4,6 +4,7 @@ import { CapitalComponent } from './pages/capital/capital.component';
 import { RegionComponent } from './pages/region/region.component';
 import { CountriesComponent } from './pages/countries/countries.component';
 import { WatchCountriesComponent } from './pages/watch-countries/watch-countries.component';
+import { CountriesRoutingModule } from './countries.routing.module';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,7 @@ import { WatchCountriesComponent } from './pages/watch-countries/watch-countries
     CountriesComponent,
     WatchCountriesComponent,
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, CountriesRoutingModule],
   exports: [
     CapitalComponent,
     RegionComponent,

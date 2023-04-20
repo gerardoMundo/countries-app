@@ -2,13 +2,12 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { CountriesModule } from './countries/countries.module';
 import { SharedModule } from './shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [AppRoutingModule, BrowserModule, CountriesModule, SharedModule],
+  imports: [AppRoutingModule, BrowserModule, SharedModule],
   providers: [],
   bootstrap: [AppComponent],
 })
