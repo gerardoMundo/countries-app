@@ -1,11 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-region',
+  selector: 'countries-by-region',
   templateUrl: './region.component.html',
-  styles: [
-  ]
+  styles: [],
 })
-export class RegionComponent {
-
-}
+export class RegionComponent {}

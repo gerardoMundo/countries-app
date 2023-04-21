@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { CapitalComponent } from './pages/capital/capital.component';
+import { CountriesComponent } from './pages/countries/countries.component';
+import { RegionComponent } from './pages/region/region.component';
+import { WatchCountriesComponent } from './pages/watch-countries/watch-countries.component';
 
 const routes: Routes = [
   {
@@ -9,15 +13,19 @@ const routes: Routes = [
   },
   {
     path: 'by-countries',
-    component: CapitalComponent,
+    component: CountriesComponent,
   },
   {
     path: 'by-region',
-    component: CapitalComponent,
+    component: RegionComponent,
   },
   {
     path: 'countrie/:id',
-    component: CapitalComponent,
+    component: WatchCountriesComponent,
+  },
+  {
+    path: '**',
+    redirectTo: 'by-capital',
   },
 ];
 

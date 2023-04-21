@@ -1,11 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-countries',
+  selector: 'countries-by-countries',
   templateUrl: './countries.component.html',
-  styles: [
-  ]
+  styles: [],
 })
-export class CountriesComponent {
-
-}
+export class CountriesComponent {}

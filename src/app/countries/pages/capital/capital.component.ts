@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-capital',
+  selector: 'countries-by-capital',
   templateUrl: './capital.component.html',
-  styles: [
-  ]
+  styles: [],
 })
 export class CapitalComponent {
-
+  searchByCapital(value: string): void {
+    console.log(value);
+  }
 }

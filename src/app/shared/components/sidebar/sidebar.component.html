@@ -3,7 +3,7 @@
   <hr class="my-3 border-2 border-gray-200" />
   <ul class="border border-gray-300 rounded">
     <li
-      routerLink=""
+      routerLink="home"
       routerLinkActive="bg-emerald-200"
       [routerLinkActiveOptions]="{ exact: true }"
       class="list-none hover:cursor-pointer p-2 border-b-2 border-b-gray-200">
@@ -18,8 +18,26 @@
     <li
       routerLink="contact"
       routerLinkActive="bg-emerald-200"
-      class="list-none hover:cursor-pointer p-2">
+      class="list-none hover:cursor-pointer p-2 border-b-2 border-b-gray-200">
       Contact
+    </li>
+    <li
+      routerLink="countries/by-capital"
+      routerLinkActive="bg-emerald-200"
+      class="list-none hover:cursor-pointer p-2 border-b-2 border-b-gray-200">
+      Por capital
+    </li>
+    <li
+      routerLink="countries/by-countries"
+      routerLinkActive="bg-emerald-200"
+      class="list-none hover:cursor-pointer p-2 border-b-2 border-b-gray-200">
+      Por paises
+    </li>
+    <li
+      routerLink="countries/by-region"
+      routerLinkActive="bg-emerald-200"
+      class="list-none hover:cursor-pointer p-2 border-b-2 border-b-gray-200">
+      Por región
     </li>
   </ul>
 </div>

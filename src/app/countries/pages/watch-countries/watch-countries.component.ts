@@ -1,11 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-watch-countries',
+  selector: 'countries-watch-countries',
   templateUrl: './watch-countries.component.html',
-  styles: [
-  ]
+  styles: [],
 })
-export class WatchCountriesComponent {
-
-}
+export class WatchCountriesComponent {}
