@@ -7,12 +7,14 @@ import { CountriesRoutingModule } from './countries.routing.module';
 import { RegionComponent } from './pages/region/region.component';
 import { SharedModule } from '../shared/shared.module';
 import { WatchCountriesComponent } from './pages/watch-countries/watch-countries.component';
+import { TableComponent } from './components/table/table.component';
 
 @NgModule({
   declarations: [
     CapitalComponent,
-    RegionComponent,
     CountriesComponent,
+    RegionComponent,
+    TableComponent,
     WatchCountriesComponent,
   ],
   imports: [CommonModule, CountriesRoutingModule, SharedModule],

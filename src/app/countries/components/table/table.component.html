@@ -1,0 +1,56 @@
+<div
+  class="bg-orange-200 py-3 pl-3 w-3/5 rounded m-auto"
+  *ngIf="countries.length === 0; else table">
+  <h2 class="text-orange-800 text-center">
+    Ninguna coincidencia de búsqueda...
+  </h2>
+</div>
+
+<ng-template #table>
+  <div class="flex flex-col">
+    <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+      <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+        <div class="overflow-hidden">
+          <table class="min-w-full text-left text-sm font-light">
+            <thead class="border-b font-medium dark:border-neutral-500">
+              <tr>
+                <th scope="col" class="px-6 py-4">#</th>
+                <th scope="col" class="px-6 py-4">Bandera</th>
+                <th scope="col" class="px-6 py-4">Nombres</th>
+                <th scope="col" class="px-6 py-4">Capital</th>
+                <th scope="col" class="px-6 py-4">Población</th>
+                <th scope="col" class="px-6 py-4">Más</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let country of countries; let i = index">
+              <tr
+                class="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:border-neutral-500 dark:hover:bg-emerald-50">
+                <td class="whitespace-nowrap px-6 py-4 font-medium">
+                  {{ i + 1 }}
+                </td>
+                <td class="whitespace-nowrap px-6 py-4">
+                  <img
+                    class="w-8 h-6"
+                    [src]="country.flags.svg"
+                    [alt]="country.name.common" />
+                </td>
+                <td class="whitespace-nowrap px-6 py-4">
+                  {{ country.name.common }}
+                </td>
+                <td class="whitespace-nowrap px-6 py-4">
+                  {{ country.capital }}
+                </td>
+                <td class="whitespace-nowrap px-6 py-4">
+                  {{ country.population | number }}
+                </td>
+                <td class="whitespace-nowrap px-6 py-4">
+                  <a href="#">Ver más</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
