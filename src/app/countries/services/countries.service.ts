@@ -20,4 +20,25 @@ export class CountriesService {
       })
     );
   }
+  searchCountry(query: string): Observable<Country[]> {
+    const endpoint = `/name/${query}`;
+
+    return this.http.get<Country[]>(this.baseURL + endpoint).pipe(
+      catchError(error => {
+        console.log(error);
+        return of([]); /* Retorna un nuevo observable [] */
+      })
+    );
+  }
+
+  searchRegion(query: string): Observable<Country[]> {
+    const endpoint = `/region/${query}`;
+
+    return this.http.get<Country[]>(this.baseURL + endpoint).pipe(
+      catchError(error => {
+        console.log(error);
+        return of([]); /* Retorna un nuevo observable [] */
+      })
+    );
+  }
 }
