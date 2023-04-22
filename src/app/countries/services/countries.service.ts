@@ -26,7 +26,7 @@ export class CountriesService {
     return this.http.get<Country[]>(this.baseURL + endpoint).pipe(
       catchError(error => {
         console.log(error);
-        return of([]); /* Retorna un nuevo observable [] */
+        return of([]);
       })
     );
   }
@@ -37,7 +37,7 @@ export class CountriesService {
     return this.http.get<Country[]>(this.baseURL + endpoint).pipe(
       catchError(error => {
         console.log(error);
-        return of([]); /* Retorna un nuevo observable [] */
+        return of([]);
       })
     );
   }

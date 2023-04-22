@@ -1,1 +1,13 @@
-<p>region works!</p>
+<h2 class="text-lg text-emerald-500 font-bold">Por región</h2>
+<hr />
+<div class="flex flex-col">
+  <div>
+    <shared-search-box
+      (capturedValue)="searchByRegion($event)"
+      placeholder="Busca por región..."></shared-search-box>
+  </div>
+  <hr class="border border-gray-300 my-3" />
+  <div>
+    <countries-table [countries]="_countries"></countries-table>
+  </div>
+</div>

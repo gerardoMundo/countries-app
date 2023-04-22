@@ -13,7 +13,7 @@ export class CountriesComponent {
   public _countries: Country[] = [];
 
   searchByCountry(term: string) {
-    this.countriesService.searchCapital(term).subscribe(countries => {
+    this.countriesService.searchCountry(term).subscribe(countries => {
       this._countries = countries;
     });
   }
