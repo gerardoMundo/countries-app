@@ -20,7 +20,7 @@ const routes: Routes = [
     component: RegionComponent,
   },
   {
-    path: 'countrie/:id',
+    path: 'country/:id',
     component: WatchCountriesComponent,
   },
   {

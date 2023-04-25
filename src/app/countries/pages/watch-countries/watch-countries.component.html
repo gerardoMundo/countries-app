@@ -1,1 +1,52 @@
-<p>watch-countries works!</p>
+<h2 class="text-lg text-emerald-500 font-bold">Por capital</h2>
+<hr class="border border-gray-300 my-3" />
+
+<ng-template
+  class="animate-spin"
+  #loader
+  class="inline-block h-12 w-12 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+  role="status">
+  <span
+    class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
+    >Loading...</span
+  >
+</ng-template>
+
+<div *ngIf="country; else loader" class="flex flex-col">
+  <h2 class="my-2">
+    <strong class="mr-2">País:</strong>{{ country.name.common }}
+  </h2>
+  <div class="flex flex-col sm:flex-row">
+    <div class="lg:max-w-lg sm:max-w-fit mr-2">
+      <img [src]="country.flags.svg" alt="country.name.common" />
+    </div>
+    <div class="ml-0">
+      <h2>Datos del país:</h2>
+      <ul>
+        <li><strong>Nombre oficial: </strong>{{ country.name.official }}</li>
+        <li><strong>Población: </strong>{{ country.population | number }}</li>
+        <li>
+          <strong>Información sobre la bandera: </strong>{{ country.flags.alt }}
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="my-4 flex flex-col max-w-fit sm:flex-row">
+    Traducciones:
+    <div class="mx-2 bg-emerald-200 rounded-md p-1 my-1">
+      {{ country.translations['ara'].common }}
+    </div>
+    <div class="mx-2 bg-emerald-200 rounded-md p-1 my-1">
+      {{ country.translations['jpn'].common }}
+    </div>
+    <div class="mx-2 bg-emerald-200 rounded-md p-1 my-1">
+      {{ country.translations['kor'].common }}
+    </div>
+    <div class="mx-2 bg-emerald-200 rounded-md p-1 my-1">
+      {{ country.translations['rus'].common }}
+    </div>
+    <div class="mx-2 bg-emerald-200 rounded-md p-1 my-1">
+      {{ country.translations['zho'].common }}
+    </div>
+  </div>
+</div>
