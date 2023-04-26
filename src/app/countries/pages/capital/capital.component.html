@@ -1,12 +1,19 @@
 <h2 class="text-lg text-emerald-500 font-bold">Por capital</h2>
-<hr />
+
+<hr class="border border-gray-300 my-3" />
+
 <div class="flex flex-col">
   <div>
+    <!-- (capturedValue)="searchByCapital($event)" -->
     <shared-search-box
       (capturedValue)="searchByCapital($event)"
       placeholder="Busca por capital..."></shared-search-box>
   </div>
-  <hr class="border border-gray-300 my-3" />
+
+  <shared-loader-spinner
+    *ngIf="isLoading"
+    class="flex flex-row justify-center flex-wrap mt-3"></shared-loader-spinner>
+
   <div>
     <countries-table [countries]="_countries"></countries-table>
   </div>

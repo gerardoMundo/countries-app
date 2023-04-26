@@ -1,7 +1,8 @@
 <label for="search-box">Búsqueda</label>
+<!-- (keyup.enter)="emitValue(txtInput.value)" registrar valor del input -->
 <input
   #txtInput
-  (keyup.enter)="emitValue(txtInput.value)"
+  (keyup)="onKeyPress(txtInput.value)"
   class="p-2 my-1 border border-emerald-500 w-full rounded focus:outline-none focus:ring-1 focus:ring-emerald-700"
   id="search-box"
   type="text"

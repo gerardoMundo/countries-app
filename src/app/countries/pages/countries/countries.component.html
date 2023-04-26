@@ -1,12 +1,18 @@
 <h2 class="text-lg text-emerald-500 font-bold">Por país</h2>
-<hr />
+
+<hr class="border border-gray-300 my-3" />
+
 <div class="flex flex-col">
   <div>
     <shared-search-box
       (capturedValue)="searchByCountry($event)"
       placeholder="Busca por país..."></shared-search-box>
   </div>
-  <hr class="border border-gray-300 my-3" />
+
+  <shared-loader-spinner
+    *ngIf="isLoading"
+    class="flex flex-row justify-center flex-wrap mt-3"></shared-loader-spinner>
+
   <div>
     <countries-table [countries]="_countries"></countries-table>
   </div>

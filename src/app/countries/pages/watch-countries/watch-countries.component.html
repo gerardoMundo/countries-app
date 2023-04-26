@@ -1,15 +1,10 @@
 <h2 class="text-lg text-emerald-500 font-bold">Por capital</h2>
 <hr class="border border-gray-300 my-3" />
 
-<ng-template
-  class="animate-spin"
-  #loader
-  class="inline-block h-12 w-12 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
-  role="status">
-  <span
-    class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
-    >Loading...</span
-  >
+<ng-template #loader>
+  <shared-loader-spinner
+    *ngIf="isLoading"
+    class="flex flex-row justify-center flex-wrap mt-3"></shared-loader-spinner>
 </ng-template>
 
 <div *ngIf="country; else loader" class="flex flex-col">

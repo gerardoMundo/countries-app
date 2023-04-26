@@ -17,11 +17,13 @@ export class WatchCountriesComponent implements OnInit {
   ) {}
 
   public country?: Country;
+  public isLoading = false;
 
   ngOnInit(): void {
     this.activatedRoute.params
       .pipe(
         switchMap(({ id }) => {
+          this.isLoading = true;
           return this.countriesService.searchCountryByID(id);
         })
       )
@@ -29,5 +31,6 @@ export class WatchCountriesComponent implements OnInit {
         if (!country) return this.router.navigateByUrl('/');
         return (this.country = country);
       });
+    this.isLoading = false;
   }
 }
