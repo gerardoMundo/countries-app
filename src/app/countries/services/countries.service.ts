@@ -3,11 +3,10 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, catchError, map, of } from 'rxjs';
 
 import { Country } from '../interfaces/country.interface';
+import { CacheStore } from '../interfaces';
 
 @Injectable({ providedIn: 'root' })
 export class CountriesService {
-  constructor(private http: HttpClient) {}
-
   private httpRequest(endpoint: string, query: string): Observable<Country[]> {
     return this.http
       .get<Country[]>(`https://restcountries.com/v3.1/${endpoint}/${query}`)
@@ -18,6 +17,17 @@ export class CountriesService {
         })
       );
   }
+
+  public cacheStore: CacheStore = {
+    byCapital: { term: '', countries: [] },
+    byCountry: { term: '', countries: [] },
+    byRegion: {
+      region: 'Americas' || 'Africa' || 'Oceania' || 'Europe' || 'Asia',
+      countries: [],
+    },
+  };
+
+  constructor(private http: HttpClient) {}
 
   searchCapital(query: string): Observable<Country[]> {
     return this.httpRequest('capital', query);
