@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, catchError, map, of, tap } from 'rxjs';
 
-import { Country } from '../interfaces/country.interface';
-import { CacheStore } from '../interfaces';
+import { CacheStore, Country, Region } from '../interfaces';
 
 @Injectable({ providedIn: 'root' })
 export class CountriesService {
@@ -27,21 +26,37 @@ export class CountriesService {
     },
   };
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.loadFromLocalStorage();
+  }
 
-  searchCapital(query: string): Observable<Country[]> {
-    return this.httpRequest('capital', query).pipe(
-      tap(countries => (this.cacheStore.byCapital.countries = countries)),
-      tap(() => (this.cacheStore.byCapital.term = query))
+  saveInLocalStorage() {
+    localStorage.setItem('cacheStore', JSON.stringify(this.cacheStore));
+  }
+
+  loadFromLocalStorage() {
+    this.cacheStore = JSON.parse(localStorage.getItem('cacheStore') || '{}');
+  }
+
+  searchCapital(term: string): Observable<Country[]> {
+    return this.httpRequest('capital', term).pipe(
+      tap(countries => (this.cacheStore.byCapital = { term, countries })),
+      tap(() => this.saveInLocalStorage())
     );
   }
 
-  searchCountry(query: string): Observable<Country[]> {
-    return this.httpRequest('name', query);
+  searchCountry(term: string): Observable<Country[]> {
+    return this.httpRequest('name', term).pipe(
+      tap(countries => (this.cacheStore.byCountry = { term, countries })),
+      tap(() => this.saveInLocalStorage())
+    );
   }
 
-  searchRegion(query: string): Observable<Country[]> {
-    return this.httpRequest('region', query);
+  searchRegion(region: Region): Observable<Country[]> {
+    return this.httpRequest('region', region).pipe(
+      tap(countries => (this.cacheStore.byRegion = { region, countries })),
+      tap(() => this.saveInLocalStorage())
+    );
   }
 
   searchCountryByID(id: string): Observable<Country | null> {
