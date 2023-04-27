@@ -44,7 +44,9 @@
                   {{ country.population | number }}
                 </td>
                 <td class="whitespace-nowrap px-6 py-4">
-                  <a [routerLink]="['/countries/country/', country.cca3]"
+                  <a
+                    class="visited:text-emerald-600 visited:font-bold"
+                    [routerLink]="['/countries/country/', country.cca3]"
                     >Ver más</a
                   >
                 </td>
