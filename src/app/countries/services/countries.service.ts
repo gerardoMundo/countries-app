@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, catchError, map, of } from 'rxjs';
+import { Observable, catchError, map, of, tap } from 'rxjs';
 
 import { Country } from '../interfaces/country.interface';
 import { CacheStore } from '../interfaces';
@@ -30,7 +30,10 @@ export class CountriesService {
   constructor(private http: HttpClient) {}
 
   searchCapital(query: string): Observable<Country[]> {
-    return this.httpRequest('capital', query);
+    return this.httpRequest('capital', query).pipe(
+      tap(countries => (this.cacheStore.byCapital.countries = countries)),
+      tap(() => (this.cacheStore.byCapital.term = query))
+    );
   }
 
   searchCountry(query: string): Observable<Country[]> {
